@@ -15,10 +15,10 @@
    <AnchorPane prefHeight="198.0" prefWidth="464.0">
       <children>
          <Button layoutX="204.0" layoutY="251.0" onAction="#change_scene_register" text="Register" />
-         <PasswordField layoutX="158.0" layoutY="157.0" />
-         <Button layoutX="211.0" layoutY="205.0" text="Login" />
+         <PasswordField fx:id="pass_field" layoutX="158.0" layoutY="157.0" />
+         <Button layoutX="211.0" layoutY="205.0" onAction="#button_login" text="Login" />
          <Text layoutX="92.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-         <TextField layoutX="159.0" layoutY="113.0" />
+         <TextField fx:id="email_field" layoutX="159.0" layoutY="113.0" />
          <Text layoutX="103.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
       </children>
    </AnchorPane>
