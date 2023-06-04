@@ -4,7 +4,11 @@ import java.sql.*;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +25,7 @@ public class HotelMain extends Application {
         }
     }
 
-    private static Stage login_stage;
+    private static Stage primary_stage;
 
     private static FXMLLoader[] loaders = {new FXMLLoader(HotelMain.class.getResource("login.fxml")),
             new FXMLLoader(HotelMain.class.getResource("register.fxml")),
@@ -55,17 +59,40 @@ public class HotelMain extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
 
-        login_stage = stage;
+        primary_stage = stage;
         stage.setScene(scenes[0]);
         stage.show();
     }
 
     public static void change_scene(int i)throws IOException {
 
-        login_stage.setScene(scenes[i]);
-        login_stage.show();
+        primary_stage.setScene(scenes[i]);
+        primary_stage.show();
     }
 
+    public static void fill(){
+        //AnchorPane root = (AnchorPane) primary_stage.getScene().getRoot(); // Use HBox for horizontal boxes or VBox for vertical boxes
+        primary_stage.getScene().setRoot(new GridPane());
+        GridPane gridPane = (GridPane) primary_stage.getScene().getRoot();
+        gridPane.setPadding(new Insets(10));
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+
+        int numRows = 3;
+        int numCols = 4;
+
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                Rectangle box = new Rectangle(100, 100); // Create a rectangle as a box
+                box.setFill(Color.LIGHTBLUE);
+                box.setStroke(Color.BLACK);
+                box.setStrokeWidth(2);
+
+                gridPane.add(box, col, row); // Add the box to the GridPane
+            }
+        }
+
+    }
     public static void login(String email, String pass) throws IOException, SQLException {
 
         System.out.println(email + " " + pass);
@@ -97,8 +124,8 @@ public class HotelMain extends Application {
                     System.out.println("--------------------");
                 } while (resultset.next());
 
-                login_stage.setScene(scenes[i+2]);
-                login_stage.show();
+                primary_stage.setScene(scenes[i+2]);
+                primary_stage.show();
                 break;
             }
         }
