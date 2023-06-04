@@ -21,6 +21,17 @@ INSERT INTO EMPLOYEE (FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, SALARY)VALUES
 ('Chloe', 'Garcia', 'chloe.garcia@exa.com', 'qwerty123',6200.50),
 ('Ethan', 'Parker', 'ethan.parker@exa.com', 'password789',8300.25);
 
+INSERT INTO ROOM (ROOM_TYPE, ROOM_CAPACITY, PRICE_PER_NIGHT, ROOM_STATUS)VALUES
+  ('NORMAL', 2, 100.00, 'GREEN'),
+  ('NORMAL', 2, 100.00, 'GREEN'),
+  ('SUITE', 4, 200.00, 'GREEN'),
+  ('ECONOMIC', 1, 50.00, 'YELLOW'),
+  ('NORMAL', 3, 150.00, 'GREEN'),
+  ('ECONOMIC', 1, 50.00, 'GREEN'),
+  ('SUITE', 4, 200.00, 'RED'),
+  ('NORMAL', 2, 100.00, 'YELLOW'),
+  ('ECONOMIC', 1, 50.00, 'GREEN'),
+  ('NORMAL', 4, 180.00, 'GREEN');
 
 
 
