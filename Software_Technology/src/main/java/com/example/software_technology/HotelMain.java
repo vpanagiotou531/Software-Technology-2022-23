@@ -28,10 +28,10 @@ public class HotelMain extends Application {
             new FXMLLoader(HotelMain.class.getResource("customer.fxml")),
             new FXMLLoader(HotelMain.class.getResource("admin.fxml")),
             new FXMLLoader(HotelMain.class.getResource("employee.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("day_off.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("order.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("staff_check.fxml")),
             new FXMLLoader(HotelMain.class.getResource("room_avail.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("staff_check.fxml"))};
+            new FXMLLoader(HotelMain.class.getResource("order.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("day_off.fxml"))};
 
     private static Scene[] scenes = new Scene[20];
 
