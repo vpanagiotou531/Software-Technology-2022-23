@@ -22,19 +22,16 @@ public class HotelMain extends Application {
     }
 
     private static Stage login_stage;
-    private static Scene login_scene;
-    private static Scene register_scene;
-    private static Scene customer_scene;
-    private static Scene admin_scene;
-    private static Scene employee_scene;
 
     private static FXMLLoader[] loaders = {new FXMLLoader(HotelMain.class.getResource("login.fxml")),
             new FXMLLoader(HotelMain.class.getResource("register.fxml")),
             new FXMLLoader(HotelMain.class.getResource("customer.fxml")),
             new FXMLLoader(HotelMain.class.getResource("admin.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("employee.fxml"))};
+            new FXMLLoader(HotelMain.class.getResource("employee.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("day_off.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("order.fxml"))};
 
-    private static Scene[] scenes ={login_scene,register_scene,customer_scene,admin_scene,employee_scene};
+    private static Scene[] scenes = new Scene[20];
 
     static {
         try {
@@ -43,6 +40,9 @@ public class HotelMain extends Application {
             scenes[2] = new Scene(loaders[2].load(), 500, 420);
             scenes[3] = new Scene(loaders[3].load(), 500, 420);
             scenes[4] = new Scene(loaders[4].load(), 500, 420);
+            scenes[5] = new Scene(loaders[5].load(), 500, 420);
+            scenes[6] = new Scene(loaders[6].load(), 500, 420);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -56,15 +56,9 @@ public class HotelMain extends Application {
         stage.show();
     }
 
-    public static void change_register() throws IOException {
+    public static void change_scene(int i)throws IOException {
 
-        login_stage.setScene(scenes[1]);
-        login_stage.show();
-    }
-
-    public static void change_login() throws IOException {
-
-        login_stage.setScene(scenes[0]);
+        login_stage.setScene(scenes[i]);
         login_stage.show();
     }
 
@@ -108,7 +102,8 @@ public class HotelMain extends Application {
     }
 
     public static Connection get_connection(){
-        return connection;   }
+        return connection;
+    }
     public static void main(String[] args) {
         launch();
     }

@@ -15,11 +15,11 @@ public class HotelController {
     private  PasswordField pass_field;
     @FXML
     protected void change_scene_register() throws IOException {
-        HotelMain.change_register();
+        HotelMain.change_scene(1);
     }
     @FXML
     protected void change_scene_login() throws IOException {
-        HotelMain.change_login();
+        HotelMain.change_scene(0);
     }
     @FXML
     protected void button_login() throws IOException, SQLException {
