@@ -11,7 +11,7 @@ import java.io.IOException;
 
 
 public class HotelMain extends Application {
-    static Connection connection;
+    private static Connection connection;
 
     static {
         try {
@@ -21,20 +21,20 @@ public class HotelMain extends Application {
         }
     }
 
-    static Stage login_stage;
-    static Scene login_scene;
-    static Scene register_scene;
-    static Scene customer_scene;
-    static Scene admin_scene;
-    static Scene employee_scene;
+    private static Stage login_stage;
+    private static Scene login_scene;
+    private static Scene register_scene;
+    private static Scene customer_scene;
+    private static Scene admin_scene;
+    private static Scene employee_scene;
 
-    static FXMLLoader[] loaders = {new FXMLLoader(HotelMain.class.getResource("login.fxml")),
+    private static FXMLLoader[] loaders = {new FXMLLoader(HotelMain.class.getResource("login.fxml")),
             new FXMLLoader(HotelMain.class.getResource("register.fxml")),
             new FXMLLoader(HotelMain.class.getResource("customer.fxml")),
             new FXMLLoader(HotelMain.class.getResource("admin.fxml")),
             new FXMLLoader(HotelMain.class.getResource("employee.fxml"))};
 
-    static Scene[] scenes ={login_scene,register_scene,customer_scene,admin_scene,employee_scene};
+    private static Scene[] scenes ={login_scene,register_scene,customer_scene,admin_scene,employee_scene};
 
     static {
         try {
@@ -52,11 +52,6 @@ public class HotelMain extends Application {
     public void start(Stage stage) throws IOException, SQLException {
 
         login_stage = stage;
-        /*Statement statement = connection.createStatement();
-        ResultSet resultset = statement.executeQuery("select * from announcement");
-        while(resultset.next()){
-            System.out.println(resultset.getString("title"));
-        }*/
         stage.setScene(scenes[0]);
         stage.show();
     }
@@ -112,6 +107,8 @@ public class HotelMain extends Application {
 
     }
 
+    public static Connection get_connection(){
+        return connection;   }
     public static void main(String[] args) {
         launch();
     }
