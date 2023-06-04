@@ -71,20 +71,27 @@ public class HotelMain extends Application {
     }
 
     public static void fill(){
-        AnchorPane root = (AnchorPane) primary_stage.getScene().getRoot(); // Use HBox for horizontal boxes or VBox for vertical boxes
-        root.setPadding(new Insets(10));
+        //AnchorPane root = (AnchorPane) primary_stage.getScene().getRoot(); // Use HBox for horizontal boxes or VBox for vertical boxes
+        primary_stage.getScene().setRoot(new GridPane());
+        GridPane gridPane = (GridPane) primary_stage.getScene().getRoot();
+        gridPane.setPadding(new Insets(10));
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
 
-        for (int i = 0; i < 10; i++) {
-             Rectangle box = new Rectangle(50, 50); // Create a rectangle as a box
-             box.setFill(Color.LIGHTBLUE);
-             box.setStroke(Color.BLACK);
-             box.setStrokeWidth(2);
+        int numRows = 3;
+        int numCols = 4;
 
-             Region spacer = new Region();
-             HBox.setHgrow(spacer, Priority.ALWAYS); // To evenly distribute the boxes horizontally
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                Rectangle box = new Rectangle(100, 100); // Create a rectangle as a box
+                box.setFill(Color.LIGHTBLUE);
+                box.setStroke(Color.BLACK);
+                box.setStrokeWidth(2);
 
-             root.getChildren().addAll(box, spacer); // Add box and spacer to the root container
-         }
+                gridPane.add(box, col, row); // Add the box to the GridPane
+            }
+        }
+
     }
     public static void login(String email, String pass) throws IOException, SQLException {
 
