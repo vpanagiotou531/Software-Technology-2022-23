@@ -4,7 +4,11 @@ import java.sql.*;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +25,7 @@ public class HotelMain extends Application {
         }
     }
 
-    private static Stage login_stage;
+    private static Stage primary_stage;
 
     private static FXMLLoader[] loaders = {new FXMLLoader(HotelMain.class.getResource("login.fxml")),
             new FXMLLoader(HotelMain.class.getResource("register.fxml")),
@@ -55,17 +59,33 @@ public class HotelMain extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
 
-        login_stage = stage;
+        primary_stage = stage;
         stage.setScene(scenes[0]);
         stage.show();
     }
 
     public static void change_scene(int i)throws IOException {
 
-        login_stage.setScene(scenes[i]);
-        login_stage.show();
+        primary_stage.setScene(scenes[i]);
+        primary_stage.show();
     }
 
+    public static void fill(){
+        AnchorPane root = (AnchorPane) primary_stage.getScene().getRoot(); // Use HBox for horizontal boxes or VBox for vertical boxes
+        root.setPadding(new Insets(10));
+
+        for (int i = 0; i < 10; i++) {
+             Rectangle box = new Rectangle(50, 50); // Create a rectangle as a box
+             box.setFill(Color.LIGHTBLUE);
+             box.setStroke(Color.BLACK);
+             box.setStrokeWidth(2);
+
+             Region spacer = new Region();
+             HBox.setHgrow(spacer, Priority.ALWAYS); // To evenly distribute the boxes horizontally
+
+             root.getChildren().addAll(box, spacer); // Add box and spacer to the root container
+         }
+    }
     public static void login(String email, String pass) throws IOException, SQLException {
 
         System.out.println(email + " " + pass);
@@ -97,8 +117,8 @@ public class HotelMain extends Application {
                     System.out.println("--------------------");
                 } while (resultset.next());
 
-                login_stage.setScene(scenes[i+2]);
-                login_stage.show();
+                primary_stage.setScene(scenes[i+2]);
+                primary_stage.show();
                 break;
             }
         }

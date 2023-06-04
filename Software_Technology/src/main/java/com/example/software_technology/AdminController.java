@@ -23,6 +23,7 @@ public class AdminController {
     @FXML
     protected void change_scene_Rooms() throws IOException {
         HotelMain.change_scene(6);
+        HotelMain.fill();
     }
     @FXML
 
