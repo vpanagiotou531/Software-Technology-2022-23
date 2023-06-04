@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.software_technology.HotelController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software_technology.AdminController">
+   <children>
+      <MenuBar layoutX="6.0" layoutY="3.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Staff">
+            <items>
+              <MenuItem fx:id="MenuItemStaff" mnemonicParsing="false" onAction="#change_scene_Staff" text="MenuItemStaff" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Rooms">
+            <items>
+              <MenuItem fx:id="MenuItemRooms" mnemonicParsing="false" onAction="#change_scene_Rooms" text="MenuItemRooms" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Orders">
+            <items>
+              <MenuItem fx:id="MenuItemOrders" mnemonicParsing="false" onAction="#change_scene_Orders" text="MenuItemOrders" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Work hours">
+              <items>
+                <MenuItem fx:id="MenuItemWork" mnemonicParsing="false" onAction="#change_scene_Work" text="MenuItemWork" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
 </AnchorPane>
