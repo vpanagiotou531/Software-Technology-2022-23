@@ -101,9 +101,6 @@ public class HotelMain extends Application {
 
     }
 
-    public static Connection get_connection(){
-        return connection;
-    }
     public static void main(String[] args) {
         launch();
     }
