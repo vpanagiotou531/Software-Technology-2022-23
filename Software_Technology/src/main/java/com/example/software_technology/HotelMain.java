@@ -93,6 +93,10 @@ public class HotelMain extends Application {
         }
 
     }
+
+    public static Connection get_connection(){
+        return connection;
+    }
     public static void login(String email, String pass) throws IOException, SQLException {
 
         System.out.println(email + " " + pass);
