@@ -1,6 +1,7 @@
 package com.example.software_technology;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -9,15 +10,16 @@ import java.io.IOException;
 
 public class AdminController {
     @FXML
-    private MenuItem MenuItemStaff;
+    private Menu MenuStaff;
     @FXML
-    private MenuItem MenuItemRooms;
+    private Menu MenuRooms;
     @FXML
-    private MenuItem MenuItemOrders;
+    private Menu MenuOrders;
     @FXML
-    private MenuItem MenuItemWork;
+    private Menu MenuWork;
     @FXML
     protected void change_scene_Staff() throws IOException {
+
         HotelMain.change_scene(5);
     }
     @FXML
