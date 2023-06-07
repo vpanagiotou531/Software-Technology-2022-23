@@ -35,7 +35,9 @@ public class HotelController {
         Stage primary_stage = HotelMain.get_stage();
         Scene[] scenes = HotelMain.get_scenes();
 
-        //HotelMain.login(email_field.getText() ,pass_field.getText());
+        primary_stage.setScene(scenes[3]);
+        primary_stage.show();
+        /*
         System.out.println(email + " " + pass);
 
         String[] sql = {"SELECT * FROM customer where email = ? and password = ?"
@@ -69,7 +71,6 @@ public class HotelController {
                 primary_stage.show();
                 break;
             }
-        }
-
+        }*/
     }
 }
