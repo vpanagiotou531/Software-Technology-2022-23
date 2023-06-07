@@ -1,10 +1,15 @@
 package com.example.software_technology;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class HotelController {
@@ -24,6 +29,47 @@ public class HotelController {
     @FXML
     protected void button_login() throws IOException, SQLException {
 
-        HotelMain.login(email_field.getText() ,pass_field.getText());
+        String email = email_field.getText();
+        String pass = pass_field.getText();
+        Connection connection = HotelMain.get_connection();
+        Stage primary_stage = HotelMain.get_stage();
+        Scene[] scenes = HotelMain.get_scenes();
+
+        //HotelMain.login(email_field.getText() ,pass_field.getText());
+        System.out.println(email + " " + pass);
+
+        String[] sql = {"SELECT * FROM customer where email = ? and password = ?"
+                , "SELECT * FROM admin where email = ? and password = ?"
+                , "SELECT * FROM employee where email = ? and password = ?"};
+
+        for(int i = 0; i < 3; i++){
+            PreparedStatement statement = connection.prepareStatement(sql[i]);
+            statement.setString(1, email); // Set the value for the second parameter placeholder
+            statement.setString(2, pass); // Set the value for the second parameter placeholder
+            ResultSet resultset = statement.executeQuery();
+
+            if (!resultset.next()) {
+                System.out.println("ResultSet is empty.");
+            } else {
+                // ResultSet is not empty, process the data
+                do {
+                    String firstName = resultset.getString("FIRST_NAME");
+                    String lastName = resultset.getString("LAST_NAME");
+                    String mail = resultset.getString("EMAIL");
+                    String password = resultset.getString("PASSWORD");
+
+                    System.out.println("First Name: " + firstName);
+                    System.out.println("Last Name: " + lastName);
+                    System.out.println("Email: " + mail);
+                    System.out.println("Password: " + password);
+                    System.out.println("--------------------");
+                } while (resultset.next());
+
+                primary_stage.setScene(scenes[i+2]);
+                primary_stage.show();
+                break;
+            }
+        }
+
     }
 }

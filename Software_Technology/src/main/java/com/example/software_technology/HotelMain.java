@@ -16,6 +16,9 @@ import java.io.IOException;
 
 public class HotelMain extends Application {
     private static Connection connection;
+    private static Stage primary_stage;
+    private static Scene[] scenes = new Scene[20];
+
 
     static {
         try {
@@ -24,8 +27,6 @@ public class HotelMain extends Application {
             throw new RuntimeException(e);
         }
     }
-
-    private static Stage primary_stage;
 
     private static FXMLLoader[] loaders = {new FXMLLoader(HotelMain.class.getResource("login.fxml")),
             new FXMLLoader(HotelMain.class.getResource("register.fxml")),
@@ -37,19 +38,19 @@ public class HotelMain extends Application {
             new FXMLLoader(HotelMain.class.getResource("order.fxml")),
             new FXMLLoader(HotelMain.class.getResource("day_off.fxml"))};
 
-    private static Scene[] scenes = new Scene[20];
 
     static {
         try {
-            scenes[0] = new Scene(loaders[0].load(), 500, 420);
-            scenes[1] = new Scene(loaders[1].load(), 500, 420);
-            scenes[2] = new Scene(loaders[2].load(), 500, 420);
-            scenes[3] = new Scene(loaders[3].load(), 500, 420);
-            scenes[4] = new Scene(loaders[4].load(), 500, 420);
-            scenes[5] = new Scene(loaders[5].load(), 500, 420);
-            scenes[6] = new Scene(loaders[6].load(), 500, 420);
-            scenes[7] = new Scene(loaders[7].load(), 500, 420);
-            scenes[8] = new Scene(loaders[8].load(), 500, 420);
+            scenes[0] = new Scene(loaders[0].load());
+            scenes[1] = new Scene(loaders[1].load());
+            scenes[2] = new Scene(loaders[2].load());
+            scenes[3] = new Scene(loaders[3].load());
+            scenes[4] = new Scene(loaders[4].load());
+            scenes[5] = new Scene(loaders[5].load());
+            scenes[6] = new Scene(loaders[6].load());
+            scenes[7] = new Scene(loaders[7].load());
+            scenes[8] = new Scene(loaders[8].load());
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -60,6 +61,7 @@ public class HotelMain extends Application {
     public void start(Stage stage) throws IOException, SQLException {
 
         primary_stage = stage;
+        primary_stage.setResizable(true);
         stage.setScene(scenes[0]);
         stage.show();
     }
@@ -91,13 +93,9 @@ public class HotelMain extends Application {
                 gridPane.add(box, col, row); // Add the box to the GridPane
             }
         }
-
     }
 
-    public static Connection get_connection(){
-        return connection;
-    }
-    public static void login(String email, String pass) throws IOException, SQLException {
+    /*public static void login(String email, String pass) throws IOException, SQLException {
 
         System.out.println(email + " " + pass);
 
@@ -134,6 +132,18 @@ public class HotelMain extends Application {
             }
         }
 
+    }*/
+
+    public static Connection get_connection(){
+        return connection;
+    }
+
+    public static Stage get_stage(){
+        return primary_stage;
+    }
+
+    public static Scene[] get_scenes(){
+        return scenes;
     }
 
     public static void main(String[] args) {
