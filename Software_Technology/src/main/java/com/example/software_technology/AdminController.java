@@ -21,6 +21,8 @@ import java.sql.*;
 public class AdminController {
 
     private Stage room_stage;
+    private Stage primary_stage = HotelMain.get_stage();
+    private Connection connection = HotelMain.get_connection();
     @FXML
     private Menu MenuStaff;
     @FXML
@@ -37,12 +39,8 @@ public class AdminController {
     @FXML
     protected void change_scene_Rooms() throws IOException, SQLException {
 
-
         HotelMain.change_scene(6);
-        Stage primary_stage = HotelMain.get_stage();
         room_stage = new Stage();
-        Connection connection = HotelMain.get_connection();
-
         room_stage.setScene(new Scene(new FXMLLoader(HotelMain.class.getResource("room_info.fxml")).load()));
         primary_stage.getScene().setRoot(new GridPane());
 
