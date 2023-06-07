@@ -21,7 +21,7 @@ public class HotelMain extends Application {
 
     static {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hoteliday_db", "root", "tinos");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hoteliday_db", "root", "root");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -35,7 +35,9 @@ public class HotelMain extends Application {
             new FXMLLoader(HotelMain.class.getResource("staff_check.fxml")),
             new FXMLLoader(HotelMain.class.getResource("room_avail.fxml")),
             new FXMLLoader(HotelMain.class.getResource("order.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("day_off.fxml"))};
+            new FXMLLoader(HotelMain.class.getResource("day_off.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("feedback.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("reservation.fxml"))};
 
 
     static {
@@ -49,6 +51,8 @@ public class HotelMain extends Application {
             scenes[6] = new Scene(loaders[6].load());
             scenes[7] = new Scene(loaders[7].load());
             scenes[8] = new Scene(loaders[8].load());
+            scenes[9] = new Scene(loaders[9].load());
+            scenes[10] = new Scene(loaders[10].load());
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -69,6 +73,7 @@ public class HotelMain extends Application {
         primary_stage.setScene(scenes[i]);
         primary_stage.show();
     }
+
 
     public static Connection get_connection(){
         return connection;

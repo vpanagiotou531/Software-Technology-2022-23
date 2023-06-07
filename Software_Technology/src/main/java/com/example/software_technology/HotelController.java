@@ -35,7 +35,7 @@ public class HotelController {
         Stage primary_stage = HotelMain.get_stage();
         Scene[] scenes = HotelMain.get_scenes();
 
-        primary_stage.setScene(scenes[3]);
+        primary_stage.setScene(scenes[2]);
         primary_stage.show();
         /*
         System.out.println(email + " " + pass);
