@@ -35,7 +35,8 @@ public class HotelMain extends Application {
             new FXMLLoader(HotelMain.class.getResource("staff_check.fxml")),
             new FXMLLoader(HotelMain.class.getResource("room_avail.fxml")),
             new FXMLLoader(HotelMain.class.getResource("order.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("day_off.fxml"))};
+            new FXMLLoader(HotelMain.class.getResource("day_off.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("room_info.fxml"))};
 
 
     static {
@@ -49,6 +50,7 @@ public class HotelMain extends Application {
             scenes[6] = new Scene(loaders[6].load());
             scenes[7] = new Scene(loaders[7].load());
             scenes[8] = new Scene(loaders[8].load());
+            scenes[9] = new Scene(loaders[9].load());
 
         } catch (IOException e) {
             throw new RuntimeException(e);
