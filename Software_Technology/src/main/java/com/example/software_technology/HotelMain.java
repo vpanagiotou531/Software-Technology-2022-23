@@ -18,6 +18,9 @@ public class HotelMain extends Application {
     private static Stage primary_stage;
     private static Scene[] scenes = new Scene[20];
 
+    private static String FIRST_NAME;
+    private static String LAST_NAME;
+    private static String STATUS;
 
     static {
         try {
@@ -35,7 +38,8 @@ public class HotelMain extends Application {
             new FXMLLoader(HotelMain.class.getResource("staff_check.fxml")),
             new FXMLLoader(HotelMain.class.getResource("room_avail.fxml")),
             new FXMLLoader(HotelMain.class.getResource("order.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("day_off.fxml"))};
+            new FXMLLoader(HotelMain.class.getResource("day_off.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("room_info.fxml"))};
 
 
     static {
@@ -49,11 +53,37 @@ public class HotelMain extends Application {
             scenes[6] = new Scene(loaders[6].load());
             scenes[7] = new Scene(loaders[7].load());
             scenes[8] = new Scene(loaders[8].load());
+            scenes[9] = new Scene(loaders[9].load());
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+    public static String getSTATUS() {
+        return STATUS;
+    }
+
+    public static void setSTATUS(String STATUS) {
+        HotelMain.STATUS = STATUS;
+    }
+
+    public static String getLastName() {
+        return LAST_NAME;
+    }
+
+    public static void setLastName(String lastName) {
+        LAST_NAME = lastName;
+    }
+
+    public static String getFirstName() {
+        return FIRST_NAME;
+    }
+
+    public static void setFirstName(String firstName) {
+        FIRST_NAME = firstName;
+    }
+
 
     @Override
     public void start(Stage stage) throws IOException, SQLException {
