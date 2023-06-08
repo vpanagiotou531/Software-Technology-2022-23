@@ -18,6 +18,9 @@ public class HotelMain extends Application {
     private static Stage primary_stage;
     private static Scene[] scenes = new Scene[20];
 
+    private static String FIRST_NAME;
+    private static String LAST_NAME;
+    private static String STATUS;
 
     static {
         try {
@@ -56,6 +59,31 @@ public class HotelMain extends Application {
             throw new RuntimeException(e);
         }
     }
+
+    public static String getSTATUS() {
+        return STATUS;
+    }
+
+    public static void setSTATUS(String STATUS) {
+        HotelMain.STATUS = STATUS;
+    }
+
+    public static String getLastName() {
+        return LAST_NAME;
+    }
+
+    public static void setLastName(String lastName) {
+        LAST_NAME = lastName;
+    }
+
+    public static String getFirstName() {
+        return FIRST_NAME;
+    }
+
+    public static void setFirstName(String firstName) {
+        FIRST_NAME = firstName;
+    }
+
 
     @Override
     public void start(Stage stage) throws IOException, SQLException {
