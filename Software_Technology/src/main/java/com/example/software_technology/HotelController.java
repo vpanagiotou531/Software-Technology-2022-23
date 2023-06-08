@@ -64,18 +64,18 @@ public class HotelController {
                     HotelMain.setLastName(lastName);
 
                     if(i == 0){
-                        HotelMain.setSTATUS("CUSTOMER_ID");
-                        HotelMain.setLastName(lastName);
+                        HotelMain.setSTATUS("CUSTOMER");
+                        HotelMain.setID(resultset.getString("CUSTOMER_ID"));
                     }
 
                     else if(i == 1){
-                        HotelMain.setSTATUS("ADMIN_ID");
-                        HotelMain.setLastName(lastName);
+                        HotelMain.setSTATUS("ADMIN");
+                        HotelMain.setID(resultset.getString("ADMIN_ID"));
                     }
 
                     else{
-                        HotelMain.setSTATUS("employee");
-                        HotelMain.setLastName("EMPLOYEE_ID");
+                        HotelMain.setSTATUS("EMPLOYEE");
+                        HotelMain.setID(resultset.getString("EMPLOYEE_ID"));
                     }
 
                     System.out.println("First Name: " + firstName);

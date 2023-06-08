@@ -21,7 +21,7 @@ public class HotelMain extends Application {
     private static String FIRST_NAME;
     private static String LAST_NAME;
     private static String STATUS;
-    private static int ID;
+    private static String ID;
 
     static {
         try {
@@ -85,11 +85,11 @@ public class HotelMain extends Application {
         FIRST_NAME = firstName;
     }
 
-    public static int getID() {
+    public static String getID() {
         return ID;
     }
 
-    public static void setID(int ID) {
+    public static void setID(String ID) {
         HotelMain.ID = ID;
     }
 
