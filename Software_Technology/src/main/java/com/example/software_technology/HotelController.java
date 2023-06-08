@@ -62,16 +62,20 @@ public class HotelController {
 
                     HotelMain.setFirstName(firstName);
                     HotelMain.setLastName(lastName);
+
                     if(i == 0){
-                        HotelMain.setSTATUS("customer");
+                        HotelMain.setSTATUS("CUSTOMER_ID");
+                        HotelMain.setLastName(lastName);
                     }
 
                     else if(i == 1){
-                        HotelMain.setSTATUS("admin");
+                        HotelMain.setSTATUS("ADMIN_ID");
+                        HotelMain.setLastName(lastName);
                     }
 
                     else{
                         HotelMain.setSTATUS("employee");
+                        HotelMain.setLastName("EMPLOYEE_ID");
                     }
 
                     System.out.println("First Name: " + firstName);
