@@ -1,10 +1,12 @@
 package com.example.software_technology;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -25,12 +27,31 @@ public class CustomerController {
     private Menu feedback;
     @FXML
     private Menu reservation;
+    @FXML
+    private Menu ratingPage;
 
+    @FXML
+    private Button RatingSubmitButton;
+
+
+
+
+    @FXML
+    private void handleButtonAction(ActionEvent event) throws IOException {
+        System.out.println("Rating Given:");
+
+    }
 
     @FXML
     protected void change_scene_reservation() throws IOException {
 
         HotelMain.change_scene(10);
+    }
+
+    @FXML
+    protected void change_scene_ratingPage() throws IOException {
+
+        HotelMain.change_scene(11);
     }
 
     @FXML

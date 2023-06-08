@@ -27,7 +27,8 @@ public class HotelMain extends Application {
         }
     }
 
-    private static FXMLLoader[] loaders = {new FXMLLoader(HotelMain.class.getResource("login.fxml")),
+    private static FXMLLoader[] loaders = {
+            new FXMLLoader(HotelMain.class.getResource("login.fxml")),
             new FXMLLoader(HotelMain.class.getResource("register.fxml")),
             new FXMLLoader(HotelMain.class.getResource("customer.fxml")),
             new FXMLLoader(HotelMain.class.getResource("admin.fxml")),
@@ -37,8 +38,8 @@ public class HotelMain extends Application {
             new FXMLLoader(HotelMain.class.getResource("order.fxml")),
             new FXMLLoader(HotelMain.class.getResource("day_off.fxml")),
             new FXMLLoader(HotelMain.class.getResource("feedback.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("reservation.fxml"))};
-
+            new FXMLLoader(HotelMain.class.getResource("reservation.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("ratingPage.fxml"))};
 
     static {
         try {
@@ -53,6 +54,7 @@ public class HotelMain extends Application {
             scenes[8] = new Scene(loaders[8].load());
             scenes[9] = new Scene(loaders[9].load());
             scenes[10] = new Scene(loaders[10].load());
+            scenes[11] = new Scene(loaders[11].load());
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -64,7 +66,7 @@ public class HotelMain extends Application {
 
         primary_stage = stage;
         primary_stage.setResizable(true);
-        stage.setScene(scenes[0]);
+        stage.setScene(scenes[11]);
         stage.show();
     }
 

@@ -8,8 +8,8 @@
     <children>
         <MenuButton layoutX="234.0" layoutY="52.0" mnemonicParsing="false" text="MenuButton">
             <items>
-                <MenuItem mnemonicParsing="false" onAction="#change_scene_feedback" text="feedback" />
-                <MenuItem mnemonicParsing="false" onAction="#change_scene_reservation" text="reservation" />
+                <MenuItem mnemonicParsing="false" onAction="#change_scene_feedback" text="Rate your Hoteliday experience" />
+                <MenuItem mnemonicParsing="false" onAction="#change_scene_reservation" text="Make a reservation" />
             </items>
         </MenuButton>
     </children>
