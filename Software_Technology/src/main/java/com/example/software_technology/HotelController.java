@@ -37,6 +37,11 @@ public class HotelController {
 
         primary_stage.setScene(scenes[2]);
         primary_stage.show();
+
+
+        String[] sql = {"SELECT * FROM customer where email = ? and password = ?"
+                , "SELECT * FROM admin where email = ? and password = ?"
+                , "SELECT * FROM employee where email = ? and password = ?"};
         /*
         System.out.println(email + " " + pass);
 

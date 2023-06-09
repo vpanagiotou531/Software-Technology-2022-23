@@ -2,12 +2,14 @@ package com.example.software_technology;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -16,6 +18,12 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.scene.control.PasswordField;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import java.io.IOException;
 import java.sql.*;
@@ -24,23 +32,13 @@ public class CustomerController {
 
 
     @FXML
-    private Menu feedback;
+    private TextField RatingNumber;
+
+    @FXML
+    private Menu RatingPage;
+
     @FXML
     private Menu reservation;
-    @FXML
-    private Menu ratingPage;
-
-    @FXML
-    private Button RatingSubmitButton;
-
-
-
-
-    @FXML
-    private void handleButtonAction(ActionEvent event) throws IOException {
-        System.out.println("Rating Given:");
-
-    }
 
     @FXML
     protected void change_scene_reservation() throws IOException {
@@ -51,18 +49,45 @@ public class CustomerController {
     @FXML
     protected void change_scene_ratingPage() throws IOException {
 
-        HotelMain.change_scene(11);
+        HotelMain.change_scene(9);
     }
 
     @FXML
+    private void button_submitRating() throws IOException, SQLException {
+        String RatingNumber1 = RatingNumber.getText();
+        Connection connection = HotelMain.get_connection();
+        Stage primary_stage = HotelMain.get_stage();
+        Scene[] scenes = HotelMain.get_scenes();
+        primary_stage.setScene(scenes[2]);
+        primary_stage.show();
+
+
+        String[] sql1 = {"INSERT INTO FEEDBACK (FEEDBACK_ID, CUSTOMER_ID, STARS_RATING, FEEDBACK_STATUS) VALUES (DEFAULT, ID, RatingNumber1, DEFAULT)"};
+
+
+    }
+}
+
+/*
+        String RatingNumber = RatingNumber.getText();
+
+    */
+
+
+
+     /*
+
+
+
+     /* @FXML
     protected void change_scene_feedback() throws IOException, SQLException {
 
 
         HotelMain.change_scene(9);
-        Stage primary_stage = HotelMain.get_stage(); /* Επιστρέφει το αρχικό page */
+        Stage primary_stage = HotelMain.get_stage();
 
         Stage room_stage = new Stage();
-        Connection connection = HotelMain.get_connection();
+        Connection connection = HotelMain.get_connection();  */
 
         /*
         room_stage.setScene(new Scene(new FXMLLoader(HotelMain.class.getResource("room_info.fxml")).load()));
@@ -113,5 +138,5 @@ public class CustomerController {
     }
 }
 */
-    }
-}
+
+

@@ -18,6 +18,10 @@ public class HotelMain extends Application {
     private static Stage primary_stage;
     private static Scene[] scenes = new Scene[20];
 
+    private static String FIRST_NAME;
+    private static String LAST_NAME;
+    private static String STATUS;
+    private static String ID;
 
     static {
         try {
@@ -37,9 +41,9 @@ public class HotelMain extends Application {
             new FXMLLoader(HotelMain.class.getResource("room_avail.fxml")),
             new FXMLLoader(HotelMain.class.getResource("order.fxml")),
             new FXMLLoader(HotelMain.class.getResource("day_off.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("feedback.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("reservation.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("ratingPage.fxml"))};
+            new FXMLLoader(HotelMain.class.getResource("ratingPage.fxml")),
+            new FXMLLoader(HotelMain.class.getResource("reservation.fxml"))};
+
 
     static {
         try {
@@ -54,19 +58,43 @@ public class HotelMain extends Application {
             scenes[8] = new Scene(loaders[8].load());
             scenes[9] = new Scene(loaders[9].load());
             scenes[10] = new Scene(loaders[10].load());
-            scenes[11] = new Scene(loaders[11].load());
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+    public static String getLastName() {
+        return LAST_NAME;
+    }
+
+    public static void setLastName(String lastName) {
+        LAST_NAME = lastName;
+    }
+
+    public static String getFirstName() {
+        return FIRST_NAME;
+    }
+
+    public static void setFirstName(String firstName) {
+        FIRST_NAME = firstName;
+    }
+
+    public static String getID() {
+        return ID;
+    }
+
+    public static void setID(String ID) {
+        HotelMain.ID = ID;
+    }
+
 
     @Override
     public void start(Stage stage) throws IOException, SQLException {
 
         primary_stage = stage;
         primary_stage.setResizable(true);
-        stage.setScene(scenes[11]);
+        stage.setScene(scenes[9]);
         stage.show();
     }
 
