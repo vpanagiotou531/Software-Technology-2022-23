@@ -30,13 +30,15 @@ import java.sql.*;
 
 public class CustomerController {
 
-
-    @FXML
-    private TextField RatingNumber;
+    private Stage room_stage;
+    private Stage primary_stage = HotelMain.get_stage();
+    private Connection connection = HotelMain.get_connection();
 
     @FXML
     private Menu RatingPage;
 
+    @FXML
+    private TextField RatingNumber;
     @FXML
     private Menu reservation;
 
@@ -60,9 +62,17 @@ public class CustomerController {
         Scene[] scenes = HotelMain.get_scenes();
         primary_stage.setScene(scenes[2]);
         primary_stage.show();
+        String ID = HotelMain.getID();
+        System.out.println( ID );
+        String sql1 = "INSERT INTO FEEDBACK (CUSTOMER_ID, STARS_RATING, FEEDBACK_STATUS) VALUES (" + ID + "," + RatingNumber1 +", DEFAULT)";
+
+        PreparedStatement statement = connection.prepareStatement(sql1);
+        statement.executeUpdate();
+
+        /* Statement statement = connection.createStatement();
+        statement.executeUpdate(sql1); */
 
 
-        String[] sql1 = {"INSERT INTO FEEDBACK (FEEDBACK_ID, CUSTOMER_ID, STARS_RATING, FEEDBACK_STATUS) VALUES (DEFAULT, ID, RatingNumber1, DEFAULT)"};
 
 
     }

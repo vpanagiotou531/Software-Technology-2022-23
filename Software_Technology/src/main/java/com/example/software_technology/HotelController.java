@@ -35,14 +35,9 @@ public class HotelController {
         Stage primary_stage = HotelMain.get_stage();
         Scene[] scenes = HotelMain.get_scenes();
 
-        primary_stage.setScene(scenes[2]);
+        primary_stage.setScene(scenes[3]);
         primary_stage.show();
 
-
-        String[] sql = {"SELECT * FROM customer where email = ? and password = ?"
-                , "SELECT * FROM admin where email = ? and password = ?"
-                , "SELECT * FROM employee where email = ? and password = ?"};
-        /*
         System.out.println(email + " " + pass);
 
         String[] sql = {"SELECT * FROM customer where email = ? and password = ?"
@@ -65,6 +60,24 @@ public class HotelController {
                     String mail = resultset.getString("EMAIL");
                     String password = resultset.getString("PASSWORD");
 
+                    HotelMain.setFirstName(firstName);
+                    HotelMain.setLastName(lastName);
+
+                    if(i == 0){
+                        HotelMain.setSTATUS("CUSTOMER");
+                        HotelMain.setID(resultset.getString("CUSTOMER_ID"));
+                    }
+
+                    else if(i == 1){
+                        HotelMain.setSTATUS("ADMIN");
+                        HotelMain.setID(resultset.getString("ADMIN_ID"));
+                    }
+
+                    else{
+                        HotelMain.setSTATUS("EMPLOYEE");
+                        HotelMain.setID(resultset.getString("EMPLOYEE_ID"));
+                    }
+
                     System.out.println("First Name: " + firstName);
                     System.out.println("Last Name: " + lastName);
                     System.out.println("Email: " + mail);
@@ -76,6 +89,6 @@ public class HotelController {
                 primary_stage.show();
                 break;
             }
-        }*/
+        }
     }
 }

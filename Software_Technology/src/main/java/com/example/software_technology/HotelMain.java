@@ -64,6 +64,13 @@ public class HotelMain extends Application {
             throw new RuntimeException(e);
         }
     }
+    public static String getSTATUS() {
+        return STATUS;
+    }
+
+    public static void setSTATUS(String STATUS) {
+        HotelMain.STATUS = STATUS;
+    }
     public static String getLastName() {
         return LAST_NAME;
     }
@@ -88,13 +95,14 @@ public class HotelMain extends Application {
         HotelMain.ID = ID;
     }
 
+    String id = getID();
 
     @Override
     public void start(Stage stage) throws IOException, SQLException {
 
         primary_stage = stage;
         primary_stage.setResizable(true);
-        stage.setScene(scenes[9]);
+        stage.setScene(scenes[0]);
         stage.show();
     }
 
