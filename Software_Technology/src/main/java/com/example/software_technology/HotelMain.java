@@ -1,7 +1,5 @@
 package com.example.software_technology;
-
 import java.sql.*;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -10,8 +8,13 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+import javafx.application.Application;
+
+import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class HotelMain extends Application {
     private static Connection connection;
