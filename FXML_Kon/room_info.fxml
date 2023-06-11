@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software_technology.AdminController">
+   <children>
+      <CheckBox fx:id="tennis" layoutX="152.0" layoutY="248.0" mnemonicParsing="false" mouseTransparent="true" />
+      <CheckBox fx:id="pool" layoutX="152.0" layoutY="225.0" mnemonicParsing="false" mouseTransparent="true" />
+      <CheckBox fx:id="meal" layoutX="152.0" layoutY="200.0" mnemonicParsing="false" mouseTransparent="true" />
+      <Label layoutX="85.0" layoutY="73.0" text="Check in date:" />
+      <Label layoutX="85.0" layoutY="97.0" text="Check out date:" />
+      <Label layoutX="85.0" layoutY="121.0" text="Name:" />
+      <Label layoutX="85.0" layoutY="147.0" text="Adults:" />
+      <Label layoutX="85.0" layoutY="174.0" text="Kids:" />
+      <Label layoutX="83.0" layoutY="200.0" text="Meal:" />
+      <Label layoutX="84.0" layoutY="225.0" text="Pool:" />
+      <Label layoutX="84.0" layoutY="248.0" text="Tennis:" />
+      <Text fx:id="checkin" layoutX="160.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="checkout" layoutX="171.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="name" layoutX="122.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="adults" layoutX="122.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="kids" layoutX="111.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
+</AnchorPane>
