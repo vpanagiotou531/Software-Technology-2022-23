@@ -6,11 +6,15 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -40,10 +44,31 @@ public class AdminController {
         Stage primary_stage = HotelMain.get_stage();
         Connection connection = HotelMain.get_connection();
 
-        HotelMain.change_scene(5);
-        primary_stage.getScene().setRoot(new GridPane());
+        HotelMain.change_scene(5);//staff_check.fxml
 
-        GridPane gridPane = (GridPane) primary_stage.getScene().getRoot();
+        AnchorPane rootPane = new AnchorPane();
+        GridPane gridPane = new GridPane();
+        rootPane.getChildren().add(gridPane);
+        primary_stage.getScene().setRoot(rootPane);
+
+        AnchorPane.setTopAnchor(gridPane, 0.0);
+        AnchorPane.setBottomAnchor(gridPane, 0.0);
+        AnchorPane.setLeftAnchor(gridPane, 0.0);
+        AnchorPane.setRightAnchor(gridPane, 0.0);
+
+        Button button = new Button("Back");
+        button.setStyle("-fx-padding: 10px;");
+        StackPane.setAlignment(button, Pos.TOP_LEFT);
+        rootPane.getChildren().add(button);
+
+        button.setOnMouseClicked(event -> {
+            try {
+                HotelMain.change_scene(3);//admin
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
         gridPane.setPadding(new Insets(10));
         gridPane.setHgap(10);
         gridPane.setVgap(10);
@@ -60,13 +85,13 @@ public class AdminController {
             if(col==1)
                 row++;
             Rectangle box = new Rectangle(100, 100); // Create a rectangle as a box
-            box.setId(Integer.toString((row-1)*4+col));
+            box.setId(Integer.toString((row-1)*5+col));
 
             box.setFill(Color.BISQUE);
 
             String name = resultset.getString("FIRST_NAME") + "\n" +resultset.getString("LAST_NAME"); // Replace with the actual name you want to display
             Text nameText = new Text(name);
-            nameText.setId(Integer.toString((row-1)*4+col));
+            nameText.setId(Integer.toString((row-1)*5+col));
             nameText.setWrappingWidth(100); // Set the width of the text box
             nameText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
             nameText.setTextAlignment(TextAlignment.CENTER);
@@ -88,7 +113,7 @@ public class AdminController {
 
             gridPane.add(box, col, row+1); // Add the box to the GridPane
             gridPane.add(nameText, col, row + 1);
-            col = (col%4) + 1;
+            col = (col%5) + 1;
         }
     }
     @FXML
@@ -97,14 +122,33 @@ public class AdminController {
         Stage primary_stage = HotelMain.get_stage();
         Connection connection = HotelMain.get_connection();
 
-        HotelMain.change_scene(6);
-        primary_stage.getScene().setRoot(new GridPane());
+        HotelMain.change_scene(6);//room_avail.fxml
 
-        GridPane gridPane = (GridPane) primary_stage.getScene().getRoot();
-        gridPane.setPadding(new Insets(10));
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
-        gridPane.setAlignment(Pos.CENTER);
+        GridPane rootPane = new GridPane();
+        primary_stage.getScene().setRoot(rootPane);
+
+        rootPane.setPadding(new Insets(10));
+        rootPane.setHgap(10);
+        rootPane.setVgap(10);
+        rootPane.setAlignment(Pos.CENTER);
+
+        Button button = new Button("Back");
+        button.setStyle("-fx-padding: 10px;");
+        StackPane.setAlignment(button, Pos.TOP_LEFT);
+        rootPane.getChildren().add(button);
+
+        button.setOnMouseClicked(event -> {
+            try {
+                HotelMain.change_scene(3);//admin
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        AnchorPane.setTopAnchor(rootPane, 0.0);
+        AnchorPane.setBottomAnchor(rootPane, 0.0);
+        AnchorPane.setLeftAnchor(rootPane, 0.0);
+        AnchorPane.setRightAnchor(rootPane, 0.0);
 
         String sql = "SELECT * FROM room ";
         Statement statement = connection.createStatement();
@@ -117,7 +161,7 @@ public class AdminController {
             if(col==1)
                 row++;
             Rectangle box = new Rectangle(100, 100); // Create a rectangle as a box
-            box.setId(Integer.toString((row-1)*4+col));
+            box.setId(Integer.toString((row-1)*5+col));
 
             System.out.println(resultset.getString("ROOM_STATUS")+"  " +"RED");
 
@@ -132,7 +176,7 @@ public class AdminController {
             }
             String name = resultset.getString("ROOM_ID"); // Replace with the actual name you want to display
             Text nameText = new Text(name);
-            nameText.setId(Integer.toString((row-1)*4+col));
+            nameText.setId(Integer.toString((row-1)*5+col));
             nameText.setWrappingWidth(100); // Set the width of the text box
             nameText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
             nameText.setTextAlignment(TextAlignment.CENTER);
@@ -143,6 +187,7 @@ public class AdminController {
 
             box.setOnMouseClicked(event -> {
                 try {
+                    System.out.println(box.getId());
                     room_info(box.getId());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -151,9 +196,9 @@ public class AdminController {
                 }
             });
 
-            gridPane.add(box, col, row+1); // Add the box to the GridPane
-            gridPane.add(nameText, col, row + 1);
-            col = (col%4) + 1;
+            rootPane.add(box, col, row+1); // Add the box to the GridPane
+            rootPane.add(nameText, col, row + 1);
+            col = (col%5) + 1;
         }
     }
     @FXML
@@ -179,7 +224,11 @@ public class AdminController {
         statement.setString(3, formattedDate); // Set the value for the third parameter placeholder
         ResultSet resultset = statement.executeQuery();
 
-        while (resultset.next()){
+        if (!resultset.next()) {
+            System.out.println("ResultSet is empty.");
+        }
+        else {
+            System.out.println(resultset.getString("INCLUDED_MEAL"));
 
             ((Text) room_stage.getScene().lookup("#checkin")).setText(resultset.getString("CHECK_IN_DATE"));
             ((Text) room_stage.getScene().lookup("#checkout")).setText(resultset.getString("CHECK_OUT_DATE"));
@@ -231,7 +280,6 @@ public class AdminController {
             ((TextField) employee_stage.getScene().lookup("#salary")).setText(resultset.getString("SALARY"));
         }
     }
-
     @FXML
     protected void edit_salary() throws SQLException {
 
@@ -247,10 +295,10 @@ public class AdminController {
     }
     @FXML
     protected void change_scene_Orders() throws IOException {
-        HotelMain.change_scene(7);
+        HotelMain.change_scene(7);//order.fxml
     }
     @FXML
     protected void change_scene_Work() throws IOException {
-        HotelMain.change_scene(8);
+        HotelMain.change_scene(8);//day_off
     }
 }

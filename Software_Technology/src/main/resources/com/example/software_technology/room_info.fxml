@@ -18,10 +18,10 @@
       <Label layoutX="83.0" layoutY="200.0" text="Meal:" />
       <Label layoutX="84.0" layoutY="225.0" text="Pool:" />
       <Label layoutX="84.0" layoutY="248.0" text="Tennis:" />
-      <Text fx:id="checkin" layoutX="160.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="checkout" layoutX="171.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="name" layoutX="122.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="adults" layoutX="122.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="kids" layoutX="111.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="checkin" layoutX="160.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="checkout" layoutX="171.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="name" layoutX="122.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="adults" layoutX="122.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="kids" layoutX="111.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>

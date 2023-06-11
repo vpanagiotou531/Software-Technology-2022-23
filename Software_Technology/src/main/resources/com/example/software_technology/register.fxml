@@ -13,14 +13,20 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <AnchorPane prefHeight="203.0" prefWidth="464.0">
+      <AnchorPane prefHeight="361.0" prefWidth="487.0">
          <children>
-            <Button layoutX="204.0" layoutY="251.0" onAction="#change_scene_login" text="Login" />
-            <PasswordField layoutX="158.0" layoutY="157.0" />
-            <Button layoutX="197.0" layoutY="203.0" text="Register" />
-            <Text layoutX="92.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-            <TextField layoutX="159.0" layoutY="113.0" />
-            <Text layoutX="103.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+            <Button layoutX="207.0" layoutY="322.0" onAction="#change_scene_login" text="Back" />
+            <PasswordField layoutX="156.0" layoutY="154.0" />
+            <Button layoutX="198.0" layoutY="277.0" text="Register" />
+            <Text layoutX="90.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+            <TextField layoutX="156.0" layoutY="69.0" />
+            <Text layoutX="111.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+            <TextField layoutX="156.0" layoutY="27.0" />
+            <TextField layoutX="156.0" layoutY="197.0" />
+            <Text layoutX="42.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password" />
+            <TextField layoutX="156.0" layoutY="111.0" />
+            <Text layoutX="84.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" />
+            <Text layoutX="80.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
          </children>
       </AnchorPane>
    </children>
