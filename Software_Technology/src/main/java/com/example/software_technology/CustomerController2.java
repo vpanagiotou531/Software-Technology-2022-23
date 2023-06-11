@@ -111,50 +111,16 @@ public class CustomerController2 implements Initializable {
     private DatePicker checkOutDate;
 
     @FXML
-    protected void change_scene_available_rooms() throws IOException, SQLException {
+    private Button backButton2;
 
-        Stage primary_stage = HotelMain.get_stage();
+
+    @FXML
+    public void button_backButton2(ActionEvent actionevent) throws IOException {
         Connection connection = HotelMain.get_connection();
-
-        HotelMain.change_scene(11);
-        primary_stage.getScene().setRoot(new GridPane());
-
-        GridPane gridPane = (GridPane) primary_stage.getScene().getRoot();
-        gridPane.setPadding(new Insets(10));
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
-        gridPane.setAlignment(Pos.CENTER);
-
-        String sql2 = "SELECT * FROM ROOM WHERE ROOM_TYPE = 'choiceBox1' AND ROOM_STATUS = 'GREEN'";
-        Statement statement = connection.createStatement();
-        ResultSet resultset = statement.executeQuery(sql2);
-
-        int col = 1;
-
-        for (int row = 0; resultset.next(); ) {
-
-            if (col == 1)
-                row++;
-            Rectangle box = new Rectangle(100, 100); // Create a rectangle as a box
-            box.setId(Integer.toString((row - 1) * 4 + col));
-
-            System.out.println(resultset.getString("ROOM_STATUS")+"  " +"RED");
-
-            String name = resultset.getString("ROOM_ID"); // Replace with the actual name you want to display
-            Text nameText = new Text(name);
-            nameText.setId(Integer.toString((row - 1) * 4 + col));
-            nameText.setWrappingWidth(100); // Set the width of the text box
-            nameText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
-            nameText.setTextAlignment(TextAlignment.CENTER);
-            nameText.setMouseTransparent(true);
-
-            box.setStroke(Color.BLACK);
-            box.setStrokeWidth(2);
-
-            gridPane.add(box, col, row + 1); // Add the box to the GridPane
-            gridPane.add(nameText, col, row + 1);
-            col = (col % 4) + 1;
-        }
+        Stage primary_stage = HotelMain.get_stage();
+        Scene[] scenes = HotelMain.get_scenes();
+        primary_stage.setScene(scenes[2]);
+        primary_stage.show();
     }
 
 
@@ -186,6 +152,8 @@ public class CustomerController2 implements Initializable {
 
     }
 }
+
+
 
 
 

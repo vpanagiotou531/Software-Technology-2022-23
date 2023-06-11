@@ -13,6 +13,7 @@
       <Button fx:id="RatingSubmitButton" layoutX="272.0" layoutY="347.0" mnemonicParsing="false" onAction="#button_submitRating" text="Submit" />
       <TextField fx:id="RatingNumber" layoutX="224.0" layoutY="200.0" />
       <Text layoutX="259.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate Us Here:" wrappingWidth="81.98307228088379" />
+      <Button fx:id="button_backButton" layoutX="33.0" layoutY="81.0" mnemonicParsing="false" onAction="#button_backButton" text="Go Back" />
    </children>
    <effect>
       <ColorAdjust />

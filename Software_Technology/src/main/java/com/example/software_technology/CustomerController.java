@@ -56,6 +56,8 @@ import java.util.ResourceBundle;
      @FXML
      private TextField RatingNumber;
 
+     @FXML Button button_backButton;
+
      @FXML
      protected void change_scene_ratingPage() throws IOException {
 
@@ -77,6 +79,17 @@ import java.util.ResourceBundle;
          PreparedStatement statement = connection.prepareStatement(sql1);
          statement.executeUpdate();
      }
+
+      @FXML
+     public void button_backButton(ActionEvent actionevent) throws IOException {
+         Connection connection = HotelMain.get_connection();
+         Stage primary_stage = HotelMain.get_stage();
+         Scene[] scenes = HotelMain.get_scenes();
+         primary_stage.setScene(scenes[2]);
+         primary_stage.show();
+     }
+
+
      @FXML
      private Menu reservation;
 
