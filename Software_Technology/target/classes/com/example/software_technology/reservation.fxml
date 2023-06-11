@@ -13,22 +13,22 @@
 <AnchorPane fx:id="R" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software_technology.CustomerController2">
     <children>
         <DatePicker fx:id="checkInDate" layoutX="57.0" layoutY="96.0" />
-        <DatePicker layoutX="370.0" layoutY="96.0" />
-        <Button layoutX="233.0" layoutY="355.0" mnemonicParsing="false" text="Find Available Options" />
+        <DatePicker fx:id="checkOutDate" layoutX="370.0" layoutY="96.0" />
+        <Button fx:id="showButton" layoutX="233.0" layoutY="355.0" mnemonicParsing="false" onAction="#button_showButton" text="Show Available Options" />
         <Text layoutX="107.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check In Date" />
         <Text layoutX="420.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check In Date" />
         <Text layoutX="57.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Adults:" />
         <Text layoutX="57.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Children:" />
-        <CheckBox layoutX="57.0" layoutY="245.0" mnemonicParsing="false" text="Meal" />
-        <CheckBox layoutX="58.0" layoutY="274.0" mnemonicParsing="false" text="Pool" />
-        <CheckBox layoutX="57.0" layoutY="305.0" mnemonicParsing="false" text="CheckBox" />
+        <CheckBox fx:id="meal" layoutX="57.0" layoutY="245.0" mnemonicParsing="false" text="Meal" />
+        <CheckBox fx:id="pool" layoutX="58.0" layoutY="274.0" mnemonicParsing="false" text="Pool" />
+        <CheckBox fx:id="tennisCourt" layoutX="57.0" layoutY="305.0" mnemonicParsing="false" text="Tennis Court" />
         <ChoiceBox fx:id="choiceBox" layoutX="382.0" layoutY="200.0" prefWidth="150.0">
             <opaqueInsets>
                 <Insets top="3.0" />
             </opaqueInsets>
         </ChoiceBox>
-        <TextField layoutX="174.0" layoutY="175.0" prefHeight="25.0" prefWidth="27.0" />
-        <TextField layoutX="174.0" layoutY="208.0" prefHeight="25.0" prefWidth="27.0" />
+        <TextField fx:id="adults" layoutX="174.0" layoutY="175.0" prefHeight="25.0" prefWidth="27.0" />
+        <TextField fx:id="children" layoutX="174.0" layoutY="208.0" prefHeight="25.0" prefWidth="27.0" />
       <Label fx:id="selection" layoutX="409.0" layoutY="179.0" text="Select Room Type" />
     </children>
 </AnchorPane>
