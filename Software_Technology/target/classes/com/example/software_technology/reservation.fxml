@@ -14,9 +14,9 @@
     <children>
         <DatePicker fx:id="checkInDate" layoutX="57.0" layoutY="96.0" />
         <DatePicker fx:id="checkOutDate" layoutX="370.0" layoutY="96.0" />
-        <Button fx:id="showButton" layoutX="233.0" layoutY="355.0" mnemonicParsing="false" onAction="#button_showButton" text="Show Available Options" />
+        <Button fx:id="button_showButton" layoutX="233.0" layoutY="355.0" mnemonicParsing="false" onAction="#button_showButton" text="Show Available Options" />
         <Text layoutX="107.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check In Date" />
-        <Text layoutX="420.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check In Date" />
+        <Text layoutX="420.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Out Date" />
         <Text layoutX="57.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Adults:" />
         <Text layoutX="57.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Children:" />
         <CheckBox fx:id="meal" layoutX="57.0" layoutY="245.0" mnemonicParsing="false" text="Meal" />
