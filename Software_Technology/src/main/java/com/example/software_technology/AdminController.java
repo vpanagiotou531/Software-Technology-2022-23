@@ -44,7 +44,7 @@ public class AdminController {
         Stage primary_stage = HotelMain.get_stage();
         Connection connection = HotelMain.get_connection();
 
-        HotelMain.change_scene(5);//staff_check.fxml
+        HotelMain.change_scene("staff_check.fxml");
 
         AnchorPane rootPane = new AnchorPane();
         GridPane gridPane = new GridPane();
@@ -63,7 +63,7 @@ public class AdminController {
 
         button.setOnMouseClicked(event -> {
             try {
-                HotelMain.change_scene(3);//admin
+                HotelMain.change_scene("admin.fxml");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -122,7 +122,7 @@ public class AdminController {
         Stage primary_stage = HotelMain.get_stage();
         Connection connection = HotelMain.get_connection();
 
-        HotelMain.change_scene(6);//room_avail.fxml
+        HotelMain.change_scene("room_avail.fxml");
 
         GridPane rootPane = new GridPane();
         primary_stage.getScene().setRoot(rootPane);
@@ -139,7 +139,7 @@ public class AdminController {
 
         button.setOnMouseClicked(event -> {
             try {
-                HotelMain.change_scene(3);//admin
+                HotelMain.change_scene("admin.fxml");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -215,6 +215,7 @@ public class AdminController {
         String sql = "SELECT * FROM reservation WHERE ROOM_ID = ? AND CHECK_IN_DATE <= ? AND CHECK_OUT_DATE >= ?";
 
         room_stage = new Stage();
+        room_stage.setResizable(true);
         room_stage.setScene(new Scene(new FXMLLoader(HotelMain.class.getResource("room_info.fxml")).load()));
         room_stage.show();
 
@@ -264,6 +265,7 @@ public class AdminController {
         String sql = "SELECT * FROM employee WHERE EMPLOYEE_ID = ? ";
 
         employee_stage = new Stage();
+        employee_stage.setResizable(true);
         employee_stage.setScene(new Scene(new FXMLLoader(HotelMain.class.getResource("employee_info.fxml")).load()));
         employee_stage.show();
 
@@ -295,10 +297,10 @@ public class AdminController {
     }
     @FXML
     protected void change_scene_Orders() throws IOException {
-        HotelMain.change_scene(7);//order.fxml
+        HotelMain.change_scene("order.fxml");
     }
     @FXML
     protected void change_scene_Work() throws IOException {
-        HotelMain.change_scene(8);//day_off
+        HotelMain.change_scene("day_off.fxml");
     }
 }

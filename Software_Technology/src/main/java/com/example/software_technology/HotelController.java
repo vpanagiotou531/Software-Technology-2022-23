@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class HotelController {
 
@@ -20,11 +21,11 @@ public class HotelController {
     private  PasswordField pass_field;
     @FXML
     protected void change_scene_register() throws IOException {
-        HotelMain.change_scene(1);
+        HotelMain.change_scene("register.fxml");
     }
     @FXML
     protected void change_scene_login() throws IOException {
-        HotelMain.change_scene(0);
+        HotelMain.change_scene("login.fxml");
     }
     @FXML
     protected void button_login() throws IOException, SQLException {
@@ -33,10 +34,10 @@ public class HotelController {
         String pass = pass_field.getText();
         Connection connection = HotelMain.get_connection();
         Stage primary_stage = HotelMain.get_stage();
-        Scene[] scenes = HotelMain.get_scenes();
+        Map<String, Scene> scenes = HotelMain.get_scenes();
 
-        primary_stage.setScene(scenes[3]);
-        primary_stage.show();
+        /*primary_stage.setScene(scenes[3]);
+        primary_stage.show();*/
 
         System.out.println(email + " " + pass);
 
@@ -66,16 +67,19 @@ public class HotelController {
                     if(i == 0){
                         HotelMain.setSTATUS("CUSTOMER");
                         HotelMain.setID(resultset.getString("CUSTOMER_ID"));
+                        HotelMain.change_scene("customer.fxml");
                     }
 
                     else if(i == 1){
                         HotelMain.setSTATUS("ADMIN");
                         HotelMain.setID(resultset.getString("ADMIN_ID"));
+                        HotelMain.change_scene("admin.fxml");
                     }
 
                     else{
                         HotelMain.setSTATUS("EMPLOYEE");
                         HotelMain.setID(resultset.getString("EMPLOYEE_ID"));
+                        HotelMain.change_scene("employee.fxml");
                     }
 
                     System.out.println("First Name: " + firstName);
@@ -83,9 +87,10 @@ public class HotelController {
                     System.out.println("Email: " + mail);
                     System.out.println("Password: " + password);
                     System.out.println("--------------------");
+                    break;
                 } while (resultset.next());
 
-                primary_stage.setScene(scenes[i+2]);
+
                 primary_stage.show();
                 break;
             }
