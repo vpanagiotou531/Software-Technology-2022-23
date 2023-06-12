@@ -56,6 +56,7 @@ public class HotelMain extends Application {
             scenes.put("available_rooms.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("available_rooms.fxml"))).load()));//7
             scenes.put("ratingPage.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("ratingPage.fxml"))).load()));//7
             scenes.put("reservation.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("reservation.fxml"))).load()));//7
+            scenes.put("AdminAnnounceList.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("AdminAnnounceList.fxml"))).load()));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
