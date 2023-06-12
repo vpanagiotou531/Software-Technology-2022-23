@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software_technology.CustomerController">
+    <children>
+        <MenuButton layoutX="234.0" layoutY="52.0" mnemonicParsing="false" text="MenuButton">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#change_scene_ratingPage" text="Rate your Hoteliday experience" />
+                <MenuItem mnemonicParsing="false" onAction="#change_scene_reservation" text="Make a reservation" />
+            </items>
+        </MenuButton>
+    </children>
+</AnchorPane>

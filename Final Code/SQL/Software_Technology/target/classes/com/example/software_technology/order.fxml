@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software_technology.OrderController">
+    <children>
+        <Text layoutX="68.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="διαλεξε προιον προς παραγγελια" wrappingWidth="202.2078399658203" />
+        <ChoiceBox fx:id="products" layoutX="13.0" layoutY="40.0" prefHeight="28.0" prefWidth="271.0" />
+        <Text layoutX="357.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="διαλεξε ποσοτητα" wrappingWidth="202.2078399658203" />
+        <Button layoutX="422.0" layoutY="317.0" mnemonicParsing="false" onAction="#button_send_order" text="αποστολή παραγγελίας" />
+        <ChoiceBox fx:id="quantity" layoutX="314.0" layoutY="40.0" prefHeight="28.0" prefWidth="271.0" />
+        <Button layoutX="48.0" layoutY="317.0" mnemonicParsing="false" onAction="#back_button" text="Back" />
+    </children>
+</AnchorPane>

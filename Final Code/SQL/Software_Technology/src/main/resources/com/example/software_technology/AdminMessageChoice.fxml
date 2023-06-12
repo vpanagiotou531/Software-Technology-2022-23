@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software_technology.AdminMessageController">
+   <children>
+      <Button layoutX="207.0" layoutY="161.0" mnemonicParsing="false" onAction="#a_send_message" prefHeight="45.0" prefWidth="185.0" text="Send Message" />
+      <Button layoutX="207.0" layoutY="216.0" mnemonicParsing="false" onAction="#a_received_messages" prefHeight="45.0" prefWidth="185.0" text="List Received Messages" />
+      <Button layoutX="208.0" layoutY="270.0" mnemonicParsing="false" onAction="#a_back_to_employee_menu" prefHeight="25.0" prefWidth="185.0" text="Back" />
+      <Button layoutX="208.0" layoutY="106.0" mnemonicParsing="false" onAction="#a_show_announcements" prefHeight="45.0" prefWidth="185.0" text="Show Announcements" />
+   </children>
+</AnchorPane>

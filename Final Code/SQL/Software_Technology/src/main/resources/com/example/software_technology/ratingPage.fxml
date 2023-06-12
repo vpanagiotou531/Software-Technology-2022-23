@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="R" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software_technology.CustomerController">
+   <children>
+      <Button fx:id="RatingSubmitButton" layoutX="272.0" layoutY="347.0" mnemonicParsing="false" onAction="#button_submitRating" text="Submit" />
+      <TextField fx:id="RatingNumber" layoutX="224.0" layoutY="200.0" />
+      <Text layoutX="259.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate Us Here:" wrappingWidth="81.98307228088379" />
+      <Button fx:id="button_backButton" layoutX="33.0" layoutY="81.0" mnemonicParsing="false" onAction="#button_backButton" text="Go Back" />
+   </children>
+   <effect>
+      <ColorAdjust />
+   </effect>
+</AnchorPane>
