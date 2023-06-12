@@ -4,24 +4,23 @@ import java.sql.*;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HotelMain extends Application {
     private static Connection connection;
     private static Stage primary_stage;
-    private static Scene[] scenes = new Scene[20];
+    private static Map<String, Scene> scenes = new HashMap<>();
 
     private static String FIRST_NAME;
     private static String LAST_NAME;
     private static String STATUS;
     private static String ID;
+    private static String EMAIL;
 
     static {
         try {
@@ -31,27 +30,17 @@ public class HotelMain extends Application {
         }
     }
 
-    private static FXMLLoader[] loaders = {new FXMLLoader(HotelMain.class.getResource("login.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("register.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("customer.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("admin.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("employee.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("staff_check.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("room_avail.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("order.fxml")),
-            new FXMLLoader(HotelMain.class.getResource("day_off.fxml")),};
-
     static {
         try {
-            scenes[0] = new Scene(loaders[0].load());
-            scenes[1] = new Scene(loaders[1].load());
-            scenes[2] = new Scene(loaders[2].load());
-            scenes[3] = new Scene(loaders[3].load());
-            scenes[4] = new Scene(loaders[4].load());
-            scenes[5] = new Scene(loaders[5].load());
-            scenes[6] = new Scene(loaders[6].load());
-            scenes[7] = new Scene(loaders[7].load());
-            scenes[8] = new Scene(loaders[8].load());
+            scenes.put("login.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("login.fxml"))).load()));//0
+            scenes.put("register.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("register.fxml"))).load()));//1
+            scenes.put("customer.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("customer.fxml"))).load()));//2
+            scenes.put("admin.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("admin.fxml"))).load()));//2
+            scenes.put("employee.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("employee.fxml"))).load()));//3
+            scenes.put("staff_check.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("staff_check.fxml"))).load()));//4
+            scenes.put("room_avail.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("room_avail.fxml"))).load()));//5
+            scenes.put("order.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("order.fxml"))).load()));//6
+            scenes.put("day_off.fxml",new Scene((new FXMLLoader(HotelMain.class.getResource("day_off.fxml"))).load()));//7
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -90,19 +79,22 @@ public class HotelMain extends Application {
         HotelMain.ID = ID;
     }
 
+    public static String getEmail() {return EMAIL; }
+
+    public static void setEmail(String Email) {HotelMain.EMAIL = Email; }
 
     @Override
     public void start(Stage stage) throws IOException, SQLException {
 
         primary_stage = stage;
         primary_stage.setResizable(true);
-        stage.setScene(scenes[0]);
+        stage.setScene(scenes.get("login.fxml"));
         stage.show();
     }
 
-    public static void change_scene(int i)throws IOException {
+    public static void change_scene(String i)throws IOException {
 
-        primary_stage.setScene(scenes[i]);
+        primary_stage.setScene(scenes.get(i));
         primary_stage.show();
     }
 
@@ -114,7 +106,7 @@ public class HotelMain extends Application {
         return primary_stage;
     }
 
-    public static Scene[] get_scenes(){
+    public static Map<String, Scene> get_scenes(){
         return scenes;
     }
 
