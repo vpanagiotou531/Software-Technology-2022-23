@@ -63,6 +63,7 @@ public class HotelController {
 
                     HotelMain.setFirstName(firstName);
                     HotelMain.setLastName(lastName);
+                    HotelMain.setEmail(mail);
 
                     if(i == 0){
                         HotelMain.setSTATUS("CUSTOMER");
