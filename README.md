@@ -266,5 +266,3 @@ Team organization, workload allocation and process are documented in the [Team P
 See [`LICENSE`](./LICENSE).
 
 ---
-
-**Why this repository is worth reviewing:** it demonstrates the full path from **software requirements and project management to object-oriented design, database-backed implementation, and a working desktop application**, rather than focusing only on source code.
